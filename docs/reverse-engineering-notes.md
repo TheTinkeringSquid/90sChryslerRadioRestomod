@@ -12,6 +12,9 @@ everything *before* removing boards.
 
 ## 0. Identification
 - Part number: **P04858531** (RAS-style AM/FM cassette)
+- Serial: **T 53 AH 151 6 P1453**
+- Application (per online listings): OEM Chrysler/Dodge/Jeep AM/FM cassette used
+  c. **1994–2001** (Ram, Caravan/Voyager, etc.). Mitsubishi-built family.
 - Bench test: **dead** (confirmed)
 - Bench pigtail for reference: **Metra 71-1817** (reverse harness — plugs into OEM
   radio). NOT 70-1817 (that's the vehicle-side aftermarket adapter).
@@ -59,12 +62,43 @@ everything *before* removing boards.
 - [ ] Eject behavior: `TODO`
 
 ## 5. Rear harness connectors
-- Power/illumination connector pinout: `TODO`
-  - Look for: BATT_12V, ACC_12V, GND, ILLUM, DIMMER, AMP_REMOTE
-  - Era note: orange/white = illumination/dimmer; blue = AMP/ANT (Infinity/power
-    antenna) — **verify on the actual van.**
-- Speaker connector pinout (FL± FR± RL± RR±): `TODO`
-- Antenna jack type (Motorola?): `TODO`
+
+### 5a. Vehicle-side wire chart (from online sources — REFERENCE, verify on van)
+Consolidated from the12volt + Dodge forums for the **1995–97 Dodge Ram** factory
+radio connector (same-era Chrysler unit; the B-van harness should match but
+**colors may differ — confirm with a meter on the actual van in Phase 6**).
+This is *function → wire color*, NOT radio-side pin numbers (those come from §1
+teardown). It's enough to build a bench pigtail with the Metra 71-1817.
+
+| Function | Wire color | Notes / conflicts |
+|---|---|---|
+| Constant 12V (BATT) | **Red** (some sources: Pink) | fused, hot at all times |
+| Switched 12V (ACC/IGN) | **Red/White** | hot in accessory/run |
+| Ground | chassis / mounting strap | chart lists "n/a" as a wire |
+| Illumination | (often combined w/ dimmer) | chart lists "n/a" separately |
+| Dimmer | **Orange/White** (some: Orange) | panel-lamp dimming |
+| Antenna trigger / power-antenna / amp-on | **Yellow** | the "blue AMP/ANT" note in the handoff = Infinity/power-antenna option; verify |
+| Left Front (+) | **Dark Green** | door 6×9 |
+| Left Front (−) | **Brown/Red** | BTL — not grounded |
+| Right Front (+) | **Purple** | |
+| Right Front (−) | **Dark Blue/Red** | BTL |
+| Left Rear (+) | **Brown/Yellow** | side-panel 5¼ |
+| Left Rear (−) | **Brown/Light Blue** | BTL |
+| Right Rear (+) | **Dark Blue/White** | |
+| Right Rear (−) | **Dark Blue/Orange** | BTL |
+
+Antenna is at the **right-front** of the radio. All four speaker outputs are
+**BTL/floating** (negatives are NOT ground) — matches the design requirement.
+
+### 5b. Radio-side connector pinout (by physical pin) — from teardown
+- Power/illumination connector: map pin number → function via continuity (§Stage H
+  of teardown protocol): `TODO`
+- Speaker connector: map pin number → FL±/FR±/RL±/RR±: `TODO`
+- Antenna jack type: likely **Motorola-style** (standard for this era) — confirm: `TODO`
+
+> No public factory schematic / service manual exists for P04858531 (proprietary
+> Mitsubishi-built Chrysler unit; service was United Radio's domain). Internal
+> nets must be reverse-engineered per the teardown protocol.
 
 ## 6. Mechanical / chassis
 - [ ] Internal volume after removing original electronics: `TODO`

@@ -21,11 +21,20 @@ referenced from the relevant design doc and/or firmware. Status: `OPEN` /
 | OQ-13 | Can the chassis be used as amplifier heatsink? | thermal, amp class | OPEN |
 | OQ-14 | Where should the microphone mount for usable HFP audio? | mic connector/routing | OPEN |
 | OQ-15 | Will WWVB receive reliably inside the dash/chassis? | external antenna decision | OPEN |
-| OQ-16 | Power/illumination + speaker connector pinouts? | rear harness footprints | OPEN |
-| OQ-17 | Antenna jack type (Motorola/other)? | antenna footprint | OPEN |
+| OQ-16 | Power/illumination + speaker connector pinouts? | rear harness footprints | PARTIAL — vehicle-side wire functions/colors found (RE §5a); radio-side pin numbering still needs teardown (§5b) |
+| OQ-17 | Antenna jack type (Motorola/other)? | antenna footprint | PARTIAL — likely Motorola-style, antenna at right-front; confirm at teardown |
 | OQ-18 | Final audio processor: discrete switches+codec DSP vs dedicated AP IC? | BOM, schematic | OPEN |
 | OQ-19 | Exact ESP32 module confirmed to support Classic A2DP+HFP for this stack? | controller selection | OPEN |
 | OQ-20 | Final factory-style behavior when tape inserted while in AM/FM/BT? | UI state machine | OPEN |
 
 ## Resolution log
 *(append `OQ-N — RESOLVED YYYY-MM-DD: answer` as items close)*
+
+- OQ-16 — PARTIAL 2026-06-14: vehicle-side radio harness wire functions/colors
+  captured (1995–97 Ram, same-era connector) in RE §5a from the12volt + forums.
+  Radio-side pin numbering still pending teardown. Verify colors on the van.
+- OQ-17 — PARTIAL 2026-06-14: antenna at right-front, likely Motorola-style jack
+  (era-standard). Confirm physically at teardown.
+- Note 2026-06-14: searched for a factory internal schematic / service manual for
+  P04858531 — **none publicly available** (proprietary Mitsubishi-built Chrysler
+  unit; United Radio service domain). Internal nets must be reverse-engineered.
