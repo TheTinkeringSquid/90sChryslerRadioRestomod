@@ -55,11 +55,12 @@ Recommended reading order in `docs/`:
 6. [display-options.md](docs/display-options.md)
 7. [cassette-integration.md](docs/cassette-integration.md)
 8. [ui-state-machine.md](docs/ui-state-machine.md)
-9. [reverse-engineering-notes.md](docs/reverse-engineering-notes.md) — **teardown capture**
-10. [open-questions.md](docs/open-questions.md) — tracked unknowns
-11. [bom-planning.md](docs/bom-planning.md)
-12. [pin-map.md](docs/pin-map.md) — **PLACEHOLDER** ESP32 pin assignments
-13. [bringup-test-plan.md](docs/bringup-test-plan.md)
+9. [teardown-protocol.md](docs/teardown-protocol.md) — **do this first (Phase 0 field guide)**
+10. [reverse-engineering-notes.md](docs/reverse-engineering-notes.md) — **teardown capture**
+11. [open-questions.md](docs/open-questions.md) — tracked unknowns
+12. [bom-planning.md](docs/bom-planning.md)
+13. [pin-map.md](docs/pin-map.md) — **PLACEHOLDER** ESP32 pin assignments
+14. [bringup-test-plan.md](docs/bringup-test-plan.md)
 
 ## Development phases
 
@@ -74,9 +75,11 @@ Recommended reading order in `docs/`:
 | 6 | Bring-up + vehicle test | Phase 5 board |
 
 > **Current real-world status:** factory radio bench-tested and confirmed dead.
-> Next physical action is **Phase 0 teardown** — capture data into
+> Next physical action is **Phase 0 teardown** — follow the step-by-step
+> [docs/teardown-protocol.md](docs/teardown-protocol.md), recording results into
 > [docs/reverse-engineering-notes.md](docs/reverse-engineering-notes.md) and
-> [mechanical/measurements.md](mechanical/measurements.md).
+> [mechanical/measurements.md](mechanical/measurements.md). That one pass
+> resolves the open questions that gate the schematic and PCB layout.
 
 ## ⚠️ Unknowns
 

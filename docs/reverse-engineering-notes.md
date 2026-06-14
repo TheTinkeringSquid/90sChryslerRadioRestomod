@@ -4,6 +4,12 @@
 `TODO` here gates a hardware/firmware decision elsewhere. Photograph and label
 everything *before* removing boards.
 
+> **Follow [teardown-protocol.md](teardown-protocol.md)** — it is the
+> step-by-step field guide that tells you exactly how to capture each value
+> below (e.g. VFD-vs-LCD test, button-matrix probing, pot taper, encoder check,
+> cassette motor V/I). This file is where the results land. Section numbers here
+> match the protocol's stages.
+
 ## 0. Identification
 - Part number: **P04858531** (RAS-style AM/FM cassette)
 - Bench test: **dead** (confirmed)
