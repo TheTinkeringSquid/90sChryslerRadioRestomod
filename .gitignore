@@ -1,0 +1,35 @@
+# --- Firmware / PlatformIO ---
+.pio/
+.pioenvs/
+.piolibdeps/
+firmware/.vscode/
+*.elf
+*.bin
+*.hex
+*.map
+
+# --- KiCad ---
+*-backups/
+*.kicad_pcb-bak
+*.kicad_sch-bak
+fp-info-cache
+*.bck
+*.000
+*.net
+_autosave-*
+*.lck
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- Build / output ---
+build/
+dist/
+*.log
+
+# Keep gerber/fab exports tracked deliberately; do not blanket-ignore.
