@@ -6,19 +6,19 @@ referenced from the relevant design doc and/or firmware. Status: `OPEN` /
 
 | ID | Question | Gates | Status |
 |---|---|---|---|
-| OQ-1 | Is the factory display definitely a VFD? | display driver, HV supply | OPEN |
-| OQ-2 | What is the display pinout (filament/grid/segment/icon)? | VFD driver, truth table | OPEN |
-| OQ-3 | Faceplate connection: ribbon / pins / soldered? | front-panel connector | OPEN |
-| OQ-4 | Buttons: matrixed / individual / resistor-ladder? | GPIO count, I/O expander | OPEN |
-| OQ-5 | Are bass/treble/balance/fader true analog pots/sliders? | ADC vs other | OPEN |
-| OQ-6 | Their resistance values and tapers? | ADC scaling, dividers | OPEN |
-| OQ-7 | Is the tune knob an encoder or analog control? | quadrature GPIO vs ADC | OPEN |
-| OQ-8 | Can the cassette mechanism be separated from the original logic board? | cassette feasibility | OPEN |
-| OQ-9 | Is there a reusable cassette preamp board? | tape audio path | OPEN |
-| OQ-10 | Cassette motor voltage/current? | motor driver sizing | OPEN |
-| OQ-11 | Tape-present and end-of-tape switches present? | transport logic | OPEN |
-| OQ-12 | Internal volume after removing original electronics? | board outline, partitioning | OPEN |
-| OQ-13 | Can the chassis be used as amplifier heatsink? | thermal, amp class | OPEN |
+| OQ-1 | Is the factory display definitely a VFD? | display driver, HV supply | **RESOLVED** — VFD confirmed [PHOTO] |
+| OQ-2 | What is the display pinout (filament/grid/segment/icon)? | VFD driver, truth table | OPEN (VFD soldered via inline pin row; map pins) |
+| OQ-3 | Faceplate connection: ribbon / pins / soldered? | front-panel connector | **RESOLVED** — ~14-pin ribbon cable [PHOTO] |
+| OQ-4 | Buttons: matrixed / individual / resistor-ladder? | GPIO count, I/O expander | PARTIAL — discrete tactiles S201–S207+, likely matrix-scanned; map [PHOTO] |
+| OQ-5 | Are bass/treble/balance/fader true analog pots/sliders? | ADC vs other | **RESOLVED** — rotary pots + slider pots [PHOTO] |
+| OQ-6 | Their resistance values and tapers? | ADC scaling, dividers | OPEN (measure) |
+| OQ-7 | Is the tune knob an encoder or analog control? | quadrature GPIO vs ADC | OPEN (no obvious encoder in photos; verify) |
+| OQ-8 | Can the cassette mechanism be separated from the original logic board? | cassette feasibility | **RESOLVED** — yes, self-contained transport [PHOTO] |
+| OQ-9 | Is there a reusable cassette preamp board? | tape audio path | PARTIAL — yes, dedicated 2-IC preamp board; trace output [PHOTO] |
+| OQ-10 | Cassette motor voltage/current? | motor driver sizing | PARTIAL — **13.2 V** [PHOTO]; current TBD |
+| OQ-11 | Tape-present and end-of-tape switches present? | transport logic | OPEN (leaf switches visible; map) |
+| OQ-12 | Internal volume after removing original electronics? | board outline, partitioning | OPEN (measure) |
+| OQ-13 | Can the chassis be used as amplifier heatsink? | thermal, amp class | **RESOLVED** — yes, amp bolts to vented chassis bracket [PHOTO] |
 | OQ-14 | Where should the microphone mount for usable HFP audio? | mic connector/routing | OPEN |
 | OQ-15 | Will WWVB receive reliably inside the dash/chassis? | external antenna decision | OPEN |
 | OQ-16 | Power/illumination + speaker connector pinouts? | rear harness footprints | PARTIAL — vehicle-side wire functions/colors found (RE §5a); radio-side pin numbering still needs teardown (§5b) |
@@ -38,3 +38,15 @@ referenced from the relevant design doc and/or firmware. Status: `OPEN` /
 - Note 2026-06-14: searched for a factory internal schematic / service manual for
   P04858531 — **none publicly available** (proprietary Mitsubishi-built Chrysler
   unit; United Radio service domain). Internal nets must be reverse-engineered.
+- 2026-06-16: first teardown photos received (10 imgs in `../mechanical/`).
+  - OQ-1 — RESOLVED: display is a **VFD** (green glass, AM/FM + 3-digit field +
+    NR/SET/1/2 icons).
+  - OQ-3 — RESOLVED: faceplate ↔ main connection is a **~14-pin ribbon cable**.
+  - OQ-5 — RESOLVED: tone/balance/fader/volume are **rotary + slider pots**.
+  - OQ-8 — RESOLVED: cassette transport is a **separable self-contained unit**.
+  - OQ-13 — RESOLVED: **chassis serves as the amp heatsink** (vented bracket).
+  - OQ-10 — PARTIAL: cassette motor is **DC 13.2 V** (current still TBD).
+  - OQ-9 — PARTIAL: a **dedicated 2-IC cassette preamp board** exists (reusable).
+  - OQ-4 — PARTIAL: discrete tactile buttons S201–S207+, likely matrix; map TBD.
+  - Still blocked on **legible IC part numbers** (µC, amp, tuner, preamp, display
+    driver) — current photos too blurry; need sharp macro shots.

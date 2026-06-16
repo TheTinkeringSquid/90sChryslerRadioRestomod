@@ -1,8 +1,10 @@
 # Reverse-Engineering Notes (Phase 0 Capture)
 
-**Status: EMPTY — to be filled during teardown.** Do not fabricate values. Every
-`TODO` here gates a hardware/firmware decision elsewhere. Photograph and label
-everything *before* removing boards.
+**Status: IN PROGRESS — first teardown photos received 2026-06-16.** Findings
+below are tagged **[PHOTO]** when confirmed from the disassembly images
+(`../mechanical/chassis-photos/`, `../mechanical/faceplate-photos/`) and `TODO`
+when they still need a meter/measurement or a sharper macro shot. Do not
+fabricate values.
 
 > **Follow [teardown-protocol.md](teardown-protocol.md)** — it is the
 > step-by-step field guide that tells you exactly how to capture each value
@@ -20,45 +22,93 @@ everything *before* removing boards.
   radio). NOT 70-1817 (that's the vehicle-side aftermarket adapter).
 
 ## 1. Original PCB
-- [ ] Photo: top side → `../mechanical/chassis-photos/`
-- [ ] Photo: bottom side
-- [ ] Microcontroller P/N: `TODO`
-- [ ] Amplifier IC P/N: `TODO`
-- [ ] Tuner section P/N: `TODO`
-- [ ] Cassette preamp IC P/N: `TODO`
+- [x] **[PHOTO]** Top side → `chassis-photos/main-pcb-top.jpg`, closeup
+  `chassis-photos/main-pcb-closeup-u4-st.jpg`. Board is a single main logic/RF
+  board with the rear pin header along the bottom edge; "WAVE SOLDER DIRECTION"
+  silk. Refdes seen: U4 (**ST**-branded DIP — STMicro µC or EEPROM), L2 (white
+  box inductor), P2 + J2 connectors, Q19, C68/C73/C74/C77/C107.
+- [ ] Photo: bottom/solder side of MAIN board (not yet captured)
+- [ ] Microcontroller P/N: `TODO` — **need sharp macro** (large SOIC on main board)
+- [ ] Amplifier IC P/N: `TODO` — chassis-mounted power IC, see
+  `chassis-photos/chassis-heatsink-amp-label.jpg`; **need sharp macro** (likely
+  TDA-class 4-ch BTL)
+- [ ] Tuner section P/N: `TODO` — **need sharp macro**
+- [ ] Cassette preamp IC P/N(s): `TODO` — two DIP ICs on the preamp board
+  (`chassis-photos/cassette-preamp-and-motor.jpg`); likely playback preamp +
+  Dolby-B NR (explains the `NR` display icon). **Need sharp macro.**
 - [ ] Voltage regulator P/N(s): `TODO`
-- [ ] Display driver IC P/N: `TODO`
-- [ ] Board outline (mm) + mounting hole positions: `TODO`
+- [ ] Display driver IC P/N: `TODO` — on faceplate board near VFD; **need macro**
+- [ ] Board outline (mm) + mounting hole positions: `TODO` (measure)
+
+> **Biggest remaining gap = legible IC markings.** The current photos are too
+> blurry/dim to read part numbers. Sharp, well-lit macro shots of each IC top
+> would let the exact tuner / amp / µC / preamp / display-driver chips be
+> identified (and datasheets pulled) — that drives several design choices.
 
 ## 2. Display
-- [ ] Type: VFD / LCD / other → `TODO` (likely VFD)
-- [ ] Glass pinout (filament / grids / segments / icons): `TODO`
-- [ ] Filament voltage: `TODO`
-- [ ] Anode/grid voltage: `TODO`
-- [ ] Segment/grid truth table: `TODO`
-- [ ] Connection type: ribbon / pins / soldered → `TODO`
-- [ ] Display window inner dimensions (mm): `TODO`
+- [x] **[PHOTO] Type: VFD — CONFIRMED.** Green vacuum-fluorescent glass on the
+  faceplate board (`faceplate-photos/faceplate-front-vfd-buttons.jpg`). Lit
+  layout reads: `AM`/`FM` annunciators (left), the numeric field `1 8.8.` with a
+  colon (frequency *and* clock), and `NR` / `SET` / `1` / `2` icons (right).
+  Tape + FFWD/RWD arrow icons per factory set. Resolves **OQ-1**.
+- [x] **[PHOTO]** Connection: VFD is **soldered to the faceplate PCB** via a
+  single inline pin row along its bottom edge (not a separate connector).
+- [ ] Glass pinout (filament / grids / segments / icons): `TODO` — map pins from
+  the inline row; filament pins = the low-ohm outer pair.
+- [ ] Filament voltage: `TODO` (measure; typical 2–4 V AC for this size)
+- [ ] Anode/grid voltage: `TODO` (typical 25–40 V)
+- [ ] Segment/grid truth table: `TODO` (powered probe, later task)
+- [ ] Display window inner dimensions (mm): `TODO` (measure for LED-fallback fit)
+
+> Design impact: a VFD means the new board needs a **boost rail (~25–40 V) + a
+> low-voltage filament supply + a VFD driver** (e.g. MAX6921 / HT16515-class) if
+> we reuse the glass — or a green-LED module behind the window as the fallback.
+> Decision deferred until the pin map + segment count are known.
 
 ## 3. Faceplate controls
-- [ ] Connection: ribbon / pins / soldered → `TODO`
-- [ ] Buttons: individual / matrix / resistor-ladder → `TODO`
+- [x] **[PHOTO]** Connection: **ribbon cable** — a ~14-conductor gray flex ribbon
+  joins the faceplate board to the main board (`faceplate-front-vfd-buttons.jpg`,
+  `faceplate-board-solder-side.jpg`). A second small white sub-board carries two
+  of the rotary pots and is tied in by a short wire harness
+  (`control-pots-board-1.jpg`). Resolves **OQ-3**.
+- [ ] Buttons: individual / matrix / resistor-ladder → `TODO` (probe) —
+  **[PHOTO]** discrete tactile switches **S201–S207+** are on the faceplate
+  board; with only ~14 ribbon lines feeding buttons + VFD + pots, they are
+  **almost certainly matrix-scanned** — confirm the row/col map with a meter.
 - [ ] If matrix: row/col map → `TODO`
-- Pots/sliders — measure R, taper, condition:
-  - [ ] Volume (+ power switch): `TODO`
-  - [ ] Tune (pot **or** encoder?): `TODO`
+- **[PHOTO]** Illumination = discrete lamps/LEDs **LP201–LP208** distributed
+  across the faceplate (clear light-pipes over the knobs). Drive a dimmable
+  equivalent from the new board (ties to the DIMMER input).
+- Pots/sliders — **[PHOTO]** present as rotary pots **A201/A202/A203** (gold
+  shafts, on the faceplate + the small sub-board) and **slider pots** (the
+  slotted black bodies near R209). Still need values/tapers:
+  - [ ] Volume (+ power switch): `TODO` (measure R + test click-switch terminals)
+  - [ ] Tune (pot **or** encoder?): `TODO` — none of the visible controls is
+    obviously an encoder; tuning may be a pot or handled by seek buttons. Verify.
   - [ ] Balance: `TODO`
   - [ ] Fader: `TODO`
   - [ ] Bass slider: `TODO`
   - [ ] Treble slider: `TODO`
+  - Markings on the pot bodies (e.g. `A201`, value codes) → **need macro** to read.
 
 ## 4. Cassette mechanism
-- [ ] Separable from logic board? `TODO`
-- [ ] Reusable preamp board? `TODO`
-- [ ] Tape head output level: `TODO`
-- [ ] Motor voltage / current: `TODO`
-- [ ] Tape-present switch present? `TODO`
+- [x] **[PHOTO]** Separable from logic board? **Yes** — self-contained
+  metal-framed transport with its own preamp PCB; connects to the main board by a
+  flat ribbon + the motor leads (`cassette-mechanism-overview.jpg`). Resolves
+  **OQ-8**.
+- [x] **[PHOTO]** Reusable preamp board? **Yes (likely)** — dedicated preamp PCB
+  on the transport with two DIP ICs and the head wiring
+  (`cassette-preamp-and-motor.jpg`); silk includes an `EIA232D`/`P620…` marking.
+  Trace its line-level L/R output for `CAS_L_IN/CAS_R_IN`. Partially resolves
+  **OQ-9** (reuse feasible; exact preamp IC P/N still `TODO`).
+- [ ] Tape head output level: `TODO` (scope at preamp output)
+- [x] **[PHOTO]** Motor voltage: **DC 13.2 V** (motor label `MMH-5N3LKP DC13.2V`).
+  Running **current** still `TODO` (current-limited ramp). Resolves voltage half
+  of **OQ-10** — note 13.2 V = run straight off the protected 12 V rail.
+- [ ] Tape-present switch present? `TODO` (leaf switches visible on frame — map)
 - [ ] End-of-tape detection? `TODO`
-- [ ] FFWD/RWD mechanism (motor/solenoid): `TODO`
+- [ ] FFWD/RWD mechanism (motor/solenoid): `TODO` — visible gear train + a wound
+  coil/solenoid near the right of the transport; identify actuation.
 - [ ] Eject behavior: `TODO`
 
 ## 5. Rear harness connectors
@@ -101,10 +151,13 @@ Antenna is at the **right-front** of the radio. All four speaker outputs are
 > nets must be reverse-engineered per the teardown protocol.
 
 ## 6. Mechanical / chassis
-- [ ] Internal volume after removing original electronics: `TODO`
-- [ ] Chassis usable as amp heatsink? `TODO`
+- [ ] Internal volume after removing original electronics: `TODO` (measure)
+- [x] **[PHOTO]** Chassis usable as amp heatsink? **Yes** — the original power amp
+  IC is bolted to a vented sheet-metal bracket that is part of the chassis
+  (`chassis-heatsink-amp-label.jpg`). Reuse the same thermal path for the new amp.
+  Resolves **OQ-13**. Chassis label seen: `0474544x / 1890 DFC 3X5 562 / …608`.
 - [ ] Chassis grounding points: `TODO`
-- [ ] Shaft locations (for knob alignment): `TODO`
+- [ ] Shaft locations (for knob alignment): `TODO` (measure → measurements.md)
 - [ ] Tape mechanism clearance: `TODO`
 - → record dimensioned values in [../mechanical/measurements.md](../mechanical/measurements.md)
 
