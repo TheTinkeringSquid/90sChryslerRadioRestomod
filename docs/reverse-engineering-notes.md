@@ -11,6 +11,9 @@ fabricate values.
 > below (e.g. VFD-vs-LCD test, button-matrix probing, pot taper, encoder check,
 > cassette motor V/I). This file is where the results land. Section numbers here
 > match the protocol's stages.
+>
+> **What's still needed → [next-capture-punchlist.md](next-capture-punchlist.md)**
+> (round-2 to-do; Priority 1 = legible IC part numbers).
 
 ## 0. Identification
 - Part number: **P04858531** (RAS-style AM/FM cassette)

@@ -55,12 +55,13 @@ Recommended reading order in `docs/`:
 6. [display-options.md](docs/display-options.md)
 7. [cassette-integration.md](docs/cassette-integration.md)
 8. [ui-state-machine.md](docs/ui-state-machine.md)
-9. [teardown-protocol.md](docs/teardown-protocol.md) — **do this first (Phase 0 field guide)**
-10. [reverse-engineering-notes.md](docs/reverse-engineering-notes.md) — **teardown capture**
-11. [open-questions.md](docs/open-questions.md) — tracked unknowns
-12. [bom-planning.md](docs/bom-planning.md)
-13. [pin-map.md](docs/pin-map.md) — **PLACEHOLDER** ESP32 pin assignments
-14. [bringup-test-plan.md](docs/bringup-test-plan.md)
+9. [teardown-protocol.md](docs/teardown-protocol.md) — Phase 0 field guide
+10. [next-capture-punchlist.md](docs/next-capture-punchlist.md) — **round-2 to-do (what's still needed)**
+11. [reverse-engineering-notes.md](docs/reverse-engineering-notes.md) — **teardown capture (in progress)**
+12. [open-questions.md](docs/open-questions.md) — tracked unknowns
+13. [bom-planning.md](docs/bom-planning.md)
+14. [pin-map.md](docs/pin-map.md) — **PLACEHOLDER** ESP32 pin assignments
+15. [bringup-test-plan.md](docs/bringup-test-plan.md)
 
 ## Development phases
 
