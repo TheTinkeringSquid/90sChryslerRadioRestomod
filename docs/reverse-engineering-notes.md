@@ -62,6 +62,12 @@ fabricate values.
 - [ ] Anode/grid voltage: `TODO` (typical 25–40 V)
 - [ ] Segment/grid truth table: `TODO` (powered probe, later task)
 - [ ] Display window inner dimensions (mm): `TODO` (measure for LED-fallback fit)
+- [x] **[VIDEO 2026-06-16]** **No dedicated VFD driver IC on the faceplate.** A
+  full pan of the faceplate solder side shows only small passives, two
+  transistors (Q201/Q202), tiny U201/U202, and the ribbon connector P201 — no
+  large driver SOIC. ⇒ the VFD is **driven from the main board over the ~14-pin
+  ribbon** (dedicated driver or direct µC VFD-drive on the main board). Look for
+  the driver when imaging the main board.
 
 > Design impact: a VFD means the new board needs a **boost rail (~25–40 V) + a
 > low-voltage filament supply + a VFD driver** (e.g. MAX6921 / HT16515-class) if
@@ -93,6 +99,11 @@ fabricate values.
   - [ ] Bass slider: `TODO`
   - [ ] Treble slider: `TODO`
   - Markings on the pot bodies (e.g. `A201`, value codes) → **need macro** to read.
+- **[VIDEO 2026-06-16]** Faceplate board no. **04745184**. Ref-des inventory for
+  the matrix map: buttons **S201–S207**, lamps **LP201–LP208**, pots
+  **A201–A203**, sliders near **R209**, transistors **Q201/Q202**, small
+  **U201/U202**, ribbon connector **P201** (~14-pin). Button/lamp lines all leave
+  via P201, reinforcing the matrix-scan hypothesis (OQ-4).
 
 ## 4. Cassette mechanism
 - [x] **[PHOTO]** Separable from logic board? **Yes** — self-contained

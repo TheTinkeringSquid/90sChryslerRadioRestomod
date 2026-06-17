@@ -31,6 +31,11 @@ P/Ns drive the tuner, amp, codec, and display-driver choices.
   Laser-etched marks read best at a shallow angle with diffuse light.
 - Hold steady / brace the phone — motion blur is what killed the first set.
 - A second shot per IC from a different angle helps if etching is faint.
+- **A slow video pan also works** — I can extract the sharpest frames (that's how
+  the faceplate clip was processed). For the **main board + cassette preamp**:
+  move ~6–8 in above the board, pan slowly (≈10 s per IC), pausing on each chip.
+  Note: the 2026-06-16 video covered only the *faceplate*, which has no large
+  ICs — so it didn't help with the part numbers still needed here.
 
 ---
 
