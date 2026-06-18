@@ -10,6 +10,24 @@ this sheet is the condensed capture form.
 > sliders near **R209**, lamps **LP201–LP208**, faceplate ribbon **P201** (~14-pin),
 > VFD soldered to the faceplate via an inline pin row.
 
+> ### ✅ The radio being DEAD does not block this work
+> Phase 0 isn't about making the radio run — we're replacing all the electronics.
+> Almost every measurement here is **unpowered** (resistance / continuity /
+> calipers) and works exactly the same on a dead unit:
+> - **A, B, C, D, F, G — no power needed.** Passive components, wiring, and
+>   dimensions. Deadness is irrelevant.
+> - **Volume "power" switch (A):** it not switching the radio on just means the
+>   *downstream* electronics are dead — which we're discarding. We only need a
+>   **continuity check of the switch contacts** to know the switch itself is
+>   reusable for `RADIO_ON`.
+> - **Motor current (E):** you drive the motor **directly from your own bench
+>   supply**, bypassing the dead electronics — so this works too.
+>
+> The *only* things a dead radio prevents (original VFD lighting; tape signal
+> through the original preamp) are **not needed now** — we drive the VFD
+> ourselves, and the preamp board can be powered directly later if we want it.
+> **Bottom line: capture everything below with confidence on the dead unit.**
+
 ---
 
 ## Equipment you need
@@ -40,7 +58,7 @@ this sheet is the condensed capture form.
 
 ---
 
-## Station A — Pots & sliders (DMM in Ω)
+## Station A — Pots & sliders (DMM in Ω) · 🔌 no power needed
 For each control: measure **end-to-end** resistance (outer pin to outer pin),
 then set the control to each position and read **wiper→one-end** resistance.
 Roughly even steps = **linear (B)** taper; bunched then steep = **audio/log (A)**.
@@ -59,7 +77,7 @@ If yes, note its terminals: ____
 
 ---
 
-## Station B — Buttons: matrix map (DMM continuity)
+## Station B — Buttons: matrix map (DMM continuity) · 🔌 no power needed
 Press each button; find which **two pins** (on P201 ribbon or the button pads)
 it connects. If buttons share lines → it's a **matrix**: record the row×col for
 each. If each button uses a unique pin + one common → **individual**.
@@ -82,7 +100,7 @@ Number of ribbon conductors on P201: ____
 
 ---
 
-## Station C — Tune control: pot or encoder? (DMM)
+## Station C — Tune control: pot or encoder? (DMM) · 🔌 no power needed
 - **Pot:** 3 terminals, resistance changes **smoothly/continuously** as you
   rotate, no clicks. → it's a pot. Total R: ____ kΩ.
 - **Encoder:** has **detents (clicks)**; in continuity mode two output pins
@@ -93,7 +111,7 @@ Verdict: **pot** / **encoder**: ____
 
 ---
 
-## Station D — VFD (DMM in Ω, unpowered)
+## Station D — VFD (DMM in Ω, unpowered) · 🔌 no power needed
 - Total number of pins on the VFD inline row: ____
 - **Filament pair:** find the two pins with a **low resistance** between them
   (a few Ω to a few tens of Ω) and no/high resistance to the rest. Pin #s: ____
@@ -102,7 +120,7 @@ Verdict: **pot** / **encoder**: ____
 
 ---
 
-## Station E — Cassette transport
+## Station E — Cassette transport · 🔌 motor needs YOUR bench supply (bypasses dead radio); switches need no power
 **Motor running current (needs current-limited supply):**
 1. Identify the two motor leads (from the capstan motor, `MMI-6N3LKP`).
 2. Set the supply to **current-limit ~0.5 A**, raise voltage from 0 until the
@@ -119,7 +137,7 @@ a tape playing, read the current: ____ mA (note source voltage ____ V).
 
 ---
 
-## Station F — Rear connectors: radio-side pin numbering (DMM continuity)
+## Station F — Rear connectors: radio-side pin numbering (DMM continuity) · 🔌 no power needed
 Number the connector pins against a photo (left→right, top row first). Map each
 **physical pin** to its function. Cross-reference §5a (vehicle colors) / §5c
 (Metra colors) but the goal here is the **radio's own pin order**.
@@ -154,7 +172,7 @@ continuity to chassis (BTL). Trace **speaker** pins from the amp's output area.
 
 ---
 
-## Station G — Mechanical (calipers, mm) → also copy into measurements.md
+## Station G — Mechanical (calipers, mm) → also copy into measurements.md · 🔌 no power needed
 Pick **one datum corner** of the main PCB (say front-left). All X,Y from there
 (X = toward right, Y = toward back).
 

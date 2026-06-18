@@ -29,7 +29,7 @@ The existing **AM/FM button** becomes the source selector: `AM → FM → BT →
 
 - No touchscreen.
 - Retain factory physical controls and look.
-- Retain AM/FM; retain cassette if practical.
+- Retain AM/FM; retain cassette.
 - Bluetooth is a *third mode on the existing AM/FM button*, not a new control.
 - Use the factory green display appearance.
 - Keep as much hardware as possible on one custom PCB.
