@@ -20,16 +20,19 @@ sliders, green segmented display, cassette controls, and OEM look/feel.
 | Hands-free calling (HFP) | Codec ADC + external mic; HW now, FW phased |
 | Radio-controlled clock | WWVB 60 kHz receiver + optional DS3231 RTC fallback |
 | Factory green display | Reuse original VFD glass **or** green-LED replacement behind window |
-| Cassette | Audio passthrough min.; full transport control as a later phase |
+| Cassette | **Required source** — full playback + transport control (motor, FFWD/RWD, eject) |
 | 4-channel audio out | Automotive BTL amp (TDA7388/TDA7850-class) to factory speaker harness |
 
-The existing **AM/FM button** becomes the source selector: `AM → FM → BT → AM`.
+**Four audio sources: AM, FM, Cassette, BT.** The **AM/FM button** cycles
+`AM → FM → BT`; inserting a cassette engages Cassette (eject returns to the
+previous source) — factory-style. See [ui-state-machine.md](docs/ui-state-machine.md).
 
 ## Hard constraints (do not violate)
 
 - No touchscreen.
 - Retain factory physical controls and look.
-- Retain AM/FM; retain cassette.
+- Retain AM/FM. **Cassette is a required, fully-functional source** (playback +
+  transport: motor, FFWD/RWD, eject), not optional.
 - Bluetooth is a *third mode on the existing AM/FM button*, not a new control.
 - Use the factory green display appearance.
 - Keep as much hardware as possible on one custom PCB.

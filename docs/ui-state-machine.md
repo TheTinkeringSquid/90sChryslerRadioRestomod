@@ -43,12 +43,16 @@ AMFM_SHORT_PRESS:
   AM_MODE       -> FM_MODE
   FM_MODE       -> BT_MODE
   BT_MODE       -> AM_MODE
-  CASSETTE_MODE -> (TBD: ignore, or switch to AM_MODE)
+  CASSETTE_MODE -> AM_MODE   (switch to radio; tape stays loaded/parked)
 
 AMFM_LONG_PRESS (in BT_MODE) -> enter Bluetooth pairing
 ```
 
-Tape insertion may override to `CASSETTE_MODE` (final factory-style behavior TBD).
+**Four sources: AM, FM, Cassette, BT.** Cassette is **not** in the button cycle —
+it's engaged by hardware: `TAPE_INSERTED` → `CASSETTE_MODE` (deck plays);
+`TAPE_EJECTED` → return to the previous source. Pressing AM/FM while a tape is
+loaded switches to radio with the tape parked (above). Edge cases (e.g. resume vs
+restart on re-select) tracked in OQ-20.
 
 ## Key behaviors
 

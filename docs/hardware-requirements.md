@@ -66,10 +66,15 @@ Audio sources                       Display
   AM/FM/WWVB. Chassis may serve as heatsink if mechanically coupled.
 - Outputs FL± FR± RL± RR± — **BTL/floating, never tie negatives to ground.**
 
-## 7. Cassette integration
-- Phase in. Min (Level 1): bring stereo cassette line-level audio in + tape-in
-  sense. Full (Level 2): ESP32 controls motor/FFWD/RWD/eject + sensors.
-- Provide generic cassette connector (see [cassette-integration.md](cassette-integration.md)).
+## 7. Cassette integration — **required source, full transport**
+- Cassette is one of the four required sources (AM/FM/Cassette/BT). The PCB must
+  support **full transport control**: bring stereo line-level audio in from the
+  reusable preamp board (`04832548`), **plus** a **motor driver** for the 13.2 V
+  capstan motor, FFWD/RWD/eject outputs, and tape-present + end-of-tape inputs.
+- Motor driver: a small **H-bridge / brushed-DC driver** rated ≥13.2 V and the
+  motor's stall current (size after OQ-10 current reading) — e.g. DRV8871 /
+  DRV8251-class, or discrete. FFWD/RWD per the transport's actuation (OQ-11).
+- Provide the cassette connector (see [cassette-integration.md](cassette-integration.md)).
 
 ## 8. Display driver
 - **Preferred:** original VFD glass → HV boost (~25–40 V), filament supply

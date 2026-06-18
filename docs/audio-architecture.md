@@ -19,7 +19,8 @@ Because this is a **dead-radio full replacement**, controls are read by the ESP3
 ADC and applied digitally, rather than left in the analog path.
 
 **Why (Option A over Option B):**
-- Clean integration of three sources (tuner / BT / cassette).
+- Clean integration of the mux inputs — tuner (AM/FM), BT, cassette — i.e. the
+  four user sources AM / FM / Cassette / BT (cassette is a required source).
 - Consistent channel levels; easy balance/fader/tone.
 - Settings can be stored/restored.
 - Avoids depending on unknown original pot impedance/taper/condition and their

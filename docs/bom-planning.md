@@ -18,6 +18,13 @@ schematic capture. This is not a purchasable BOM yet.
 | Source switches | TS3A-series / MAX4544 / MAX4xxx | low-distortion analog |
 | 4-ch amplifier | TDA7388 / TDA7850 | automotive BTL |
 
+## Cassette (required source — full transport)
+| Item | Candidate | Notes |
+|---|---|---|
+| Motor driver | DRV8871 / DRV8251 / discrete H-bridge | ≥13.2 V, size to motor stall current (OQ-10) |
+| Transport drivers | logic-level FETs / ULN2003-class | FFWD/RWD/eject actuation (OQ-11) |
+| Preamp | **reuse board 04832548** (Toshiba TA770xP + Hitachi NR) | line-level L/R into mux |
+
 ## Tuner
 | Item | Candidate | Notes |
 |---|---|---|

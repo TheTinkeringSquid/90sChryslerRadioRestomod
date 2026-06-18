@@ -25,10 +25,17 @@ referenced from the relevant design doc and/or firmware. Status: `OPEN` /
 | OQ-17 | Antenna jack type (Motorola/other)? | antenna footprint | PARTIAL — likely Motorola-style, antenna at right-front; confirm at teardown |
 | OQ-18 | Final audio processor: discrete switches+codec DSP vs dedicated AP IC? | BOM, schematic | OPEN |
 | OQ-19 | Exact ESP32 module confirmed to support Classic A2DP+HFP for this stack? | controller selection | OPEN |
-| OQ-20 | Final factory-style behavior when tape inserted while in AM/FM/BT? | UI state machine | OPEN |
+| OQ-20 | Cassette select/return UX edge cases (resume vs restart, AM/FM-while-tape) | UI state machine | PARTIAL — default set: insert→Cassette, eject→prev source, AM/FM parks tape; edge cases open |
 
 ## Resolution log
 *(append `OQ-N — RESOLVED YYYY-MM-DD: answer` as items close)*
+
+- 2026-06-17 (requirement change): **Cassette is now a REQUIRED audio source**
+  (four sources: AM, FM, Cassette, BT) with full transport control (playback,
+  motor, FFWD/RWD, eject). Was previously "optional / if practical". The PCB must
+  ship Level-2-capable (motor driver + transport outputs + tape/EOT inputs).
+  Updated README, cassette-integration, audio-architecture, factory-functions,
+  ui-state-machine. OQ-20 narrowed to UX edge cases (default behavior now set).
 
 - OQ-16 — PARTIAL 2026-06-14: vehicle-side radio harness wire functions/colors
   captured (1995–97 Ram, same-era connector) in RE §5a from the12volt + forums.

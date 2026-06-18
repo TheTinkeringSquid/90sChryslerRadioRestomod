@@ -64,12 +64,14 @@ teardown or a later UI decision.
   meaningful.
 
 ### EJT button
-- **Factory:** eject tape. **Restomod:** keep if cassette mechanism reused.
+- **Factory:** eject tape. **Restomod:** **required** — eject is part of full
+  transport control (cassette is a required source).
 
 ### FFWD / RWD buttons
 - **Factory:** fast-forward / rewind cassette.
-- **Restomod:** keep cassette transport if mechanism reused. In BT mode, optional
-  next/prev track. Do not break cassette behavior when tape mode is active.
+- **Restomod:** **required** cassette transport (FFWD/RWD driven by the ESP32). In
+  BT mode they may also map to next/prev track. Cassette behavior takes priority
+  when a tape is loaded.
 
 ## Display (green segmented)
 
