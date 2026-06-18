@@ -73,6 +73,9 @@ Pick one datum corner of the main PCB; reference all X,Y to it (mm).
 
 ---
 
+> **Working at the bench?** Use [bench-worksheet.md](bench-worksheet.md) — a
+> fill-in-the-blanks form covering Priority 2 + 3 with the tool list up top.
+
 ## When this is done
 Resolving Priority 1 + 2 closes OQ-2/4/6/7/9/10/11 and IDs the core ICs;
 Priority 3 gives the board outline. At that point the design is fully unblocked

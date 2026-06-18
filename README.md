@@ -56,7 +56,8 @@ Recommended reading order in `docs/`:
 7. [cassette-integration.md](docs/cassette-integration.md)
 8. [ui-state-machine.md](docs/ui-state-machine.md)
 9. [teardown-protocol.md](docs/teardown-protocol.md) — Phase 0 field guide
-10. [next-capture-punchlist.md](docs/next-capture-punchlist.md) — **round-2 to-do (what's still needed)**
+10. [next-capture-punchlist.md](docs/next-capture-punchlist.md) — round-2 to-do (what's still needed)
+10b. [bench-worksheet.md](docs/bench-worksheet.md) — **fill-in-the-blanks capture sheet + tool list**
 11. [reverse-engineering-notes.md](docs/reverse-engineering-notes.md) — **teardown capture (in progress)**
 12. [open-questions.md](docs/open-questions.md) — tracked unknowns
 13. [bom-planning.md](docs/bom-planning.md)
