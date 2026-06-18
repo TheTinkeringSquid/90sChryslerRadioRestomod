@@ -11,9 +11,13 @@ them. Measurements can be typed to me or written straight into the linked file.
 
 ---
 
-## Priority 1 — Legible IC part numbers  → RE §1
-The current main-board/preamp shots are too soft to read chip markings; these
-P/Ns drive the tuner, amp, codec, and display-driver choices.
+## Priority 1 — Legible IC part numbers  → RE §1  ✅ DONE (2026-06-17)
+Resolved from the main-board videos. **Main-board signal ICs are custom
+Chrysler/ACUSTAR masks** (not sourceable) → confirms replace-all. **Cassette
+preamp uses standard parts** (Toshiba TA770xP + Hitachi Dolby-B). Amp IC is
+clamped face-to-chassis (unreadable, and irrelevant since we pick our own). No
+further IC capture needed. The original shoot list is retained below only as a
+record; **skip to Priority 2/3** — those are what still gate the board.
 
 **Shoot list (one sharp, glare-free macro each):**
 - [ ] Main board — **microcontroller** (largest SOIC) → RE §1

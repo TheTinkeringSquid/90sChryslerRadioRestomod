@@ -14,7 +14,7 @@ referenced from the relevant design doc and/or firmware. Status: `OPEN` /
 | OQ-6 | Their resistance values and tapers? | ADC scaling, dividers | OPEN (measure) |
 | OQ-7 | Is the tune knob an encoder or analog control? | quadrature GPIO vs ADC | OPEN (no obvious encoder in photos; verify) |
 | OQ-8 | Can the cassette mechanism be separated from the original logic board? | cassette feasibility | **RESOLVED** — yes, self-contained transport [PHOTO] |
-| OQ-9 | Is there a reusable cassette preamp board? | tape audio path | PARTIAL — yes, dedicated 2-IC preamp board; trace output [PHOTO] |
+| OQ-9 | Is there a reusable cassette preamp board? | tape audio path | **RESOLVED** — board 04832548, Toshiba TA770xP + Hitachi NR; trace output [VIDEO] |
 | OQ-10 | Cassette motor voltage/current? | motor driver sizing | PARTIAL — **13.2 V** [PHOTO]; current TBD |
 | OQ-11 | Tape-present and end-of-tape switches present? | transport logic | OPEN (leaf switches visible; map) |
 | OQ-12 | Internal volume after removing original electronics? | board outline, partitioning | OPEN (measure) |
@@ -50,3 +50,18 @@ referenced from the relevant design doc and/or firmware. Status: `OPEN` /
   - OQ-4 — PARTIAL: discrete tactile buttons S201–S207+, likely matrix; map TBD.
   - Still blocked on **legible IC part numbers** (µC, amp, tuner, preamp, display
     driver) — current photos too blurry; need sharp macro shots.
+- 2026-06-17: two main-board videos (front+back) + cassette-deck + Metra harness
+  label processed (frames archived under `../mechanical/chassis-photos/`).
+  - **IC RE effectively complete.** Main-board signal ICs are **custom
+    Chrysler/ACUSTAR masks** (Motorola `04745268`/`04745269`/`SC417964CP-04745177`,
+    an ST DIP) — **not sourceable**, confirming replace-all. Amp IC is clamped
+    face-to-chassis (unreadable, irrelevant to redesign).
+  - OQ-9 — RESOLVED: cassette preamp board `04832548` uses **standard** parts
+    (Toshiba TA770xP playback + Hitachi HA12134-type Dolby-B NR) → reusable.
+  - Motor refined to `MMI-6N3LKP DC 13.2 V`.
+  - Added Metra/EIA aftermarket color code (RE §5c) from the harness-bag label
+    (distinct from the vehicle-side colors and the radio pin numbering).
+  - Remaining gates are now **interfaces + mechanical**, not ICs: radio-side
+    connector pin numbering (§5b), button-matrix map (OQ-4), pot values/tapers
+    (OQ-6), tune pot-vs-encoder (OQ-7), VFD pinout (OQ-2), motor current/tape
+    switches (OQ-10/11), and the board outline + measurements.
