@@ -57,6 +57,7 @@ Recommended reading order in `docs/`:
 5. [power-protection.md](docs/power-protection.md)
 6. [display-options.md](docs/display-options.md)
 7. [cassette-integration.md](docs/cassette-integration.md)
+7b. [reuse-strategy.md](docs/reuse-strategy.md) — **which boards we reuse vs replace**
 8. [ui-state-machine.md](docs/ui-state-machine.md)
 9. [teardown-protocol.md](docs/teardown-protocol.md) — Phase 0 field guide
 10. [next-capture-punchlist.md](docs/next-capture-punchlist.md) — round-2 to-do (what's still needed)
