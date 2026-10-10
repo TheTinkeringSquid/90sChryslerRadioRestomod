@@ -1,5 +1,5 @@
 # Dodge B2500 Radio Restomod — Agent Instructions (Claude + Codex)
-<!-- CLAUDE.md and AGENTS.md are identical; edit both together. Router, not a diary: keep under ~100 lines. -->
+<!-- Single instruction file for Claude and Codex. CLAUDE.md only imports it (@AGENTS.md): edit THIS file, never CLAUDE.md. Router, not a diary: keep under ~100 lines. -->
 
 ## What this is
 ESP32 electronics replacing the dead internals of a **1996 Dodge B2500** factory AM/FM cassette head unit (P/N P04858531). The factory faceplate, knobs, buttons, sliders, green display, and cassette controls are kept.
